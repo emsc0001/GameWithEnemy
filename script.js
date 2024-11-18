@@ -28,7 +28,7 @@ function movePlayer(event) {
 function moveEnemy() {
   enemyPosition.y += enemyDirection * 5;
   if (enemyPosition.y <= 0 || enemyPosition.y >= gameArea.offsetHeight - 50) {
-    enemyDirection *= -1; // Change direction
+    enemyDirection *= -1; 
   }
 }
 
@@ -38,16 +38,16 @@ function detectCollision() {
   const distance = Math.sqrt(dx * dx + dy * dy);
 
   if (distance < 50) {
-    player.style.backgroundColor = 'yellow'; // Collision detected
+    player.style.backgroundColor = 'yellow';
     updateScore();
   } else {
-    player.style.backgroundColor = 'blue'; // No collision
+    player.style.backgroundColor = 'blue';
   }
 }
 
 
 function updateScore() {
-    score += 1; // Increment score by 1
+    score += 1; 
     scoreDisplay.textContent = `Score: ${score}`;
   }
 

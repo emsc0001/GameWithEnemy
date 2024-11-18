@@ -1,0 +1,70 @@
+/* Styling for the grid background */
+#background {
+    display: grid;
+    grid-template-columns: repeat(var(--GRID_WIDTH), var(--TILE_SIZE));
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    width: 100vw; /* Full screen width */
+    background-color: #222; /* Optional background for outside the game */
+    overflow: hidden;
+}
+
+/* General styling for tiles */
+.tile {
+    width: calc(var(--TILE_SIZE) - 1px);
+    aspect-ratio: 1 /1;;
+}
+
+#gamefield {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 32px); /* Set grid to fit tiles */
+    grid-auto-rows: 32px; /* Tile size */
+    gap: 0;
+    background-color: #000; /* Optional border color around the game */
+}
+
+.tile.grass {
+    background-image: url('./images/grass.png');
+    background-size: cover;
+}
+
+.tile.path {
+    background-image: url('./images/path.png');
+    background-size: cover;
+}
+
+.tile.water {
+    background-image: url('./images/water.png');
+    background-size: cover;
+}
+
+.tile.flowers {
+    background-image: url('./images/flowers.png');
+    background-size: cover;
+}
+
+.tile.wall {
+    background-image: url('./images/wall.png');
+    background-size: cover;
+}
+
+#player {
+    width: calc(var(--TILE_SIZE) - 4px); /* Slightly smaller than a tile */
+    height: calc(var(--TILE_SIZE) - 4px);
+    background-color: red; /* Visible color for the player */
+    border-radius: 50%; /* Optional: make the player circular */
+    position: absolute; /* Allow free placement on the grid */
+    z-index: 2; /* Ensure the player is above the tiles */
+    transition: transform 0.1s linear; /* Smooth movement */
+}
